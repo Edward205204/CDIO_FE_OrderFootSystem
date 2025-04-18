@@ -1,52 +1,24 @@
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { Button } from '../ui/button';
 import { ModeToggle } from '../mode-toggle';
+import LogoIcon from './logo-icon';
+import { PATH } from '@/constants/path';
 
 export default function Header() {
+  const navigate = useNavigate();
+  const handleNavigateLogin = () => {
+    navigate(PATH.login);
+  };
+
   return (
     <div className='border-b border-b-slate-200 dark:border-b-slate-700 '>
       <div className='container'>
         <div className='flex item-center justify-between px-1 py-6'>
-          <div className='w-18 h-18'>
-            <Link to={'/'}>
-              <img src='./mainlogo.png' alt='main icon' className='w-full h-full object-cover rounded-full' />
-            </Link>
-          </div>
+          <Link to={'/'}>
+            <LogoIcon container='w-18 h-18' />
+          </Link>
+
           <nav className='flex items-center text-base '>
-            {/* <ul className='flex items-center gap-4 font-sans '>
-              <li>
-                <Link to='/'>
-                  <div className='relative w-max px-3 py-2 flex items-center'>
-                    <span>Trang chủ</span>
-                    <span className='absolute -bottom-1 left-0 w-0 transition-all h-1 bg-yellow-400'></span>
-                  </div>
-                </Link>
-              </li>
-              <li>
-                <Link to='/'>
-                  <div className='relative w-max px-3 py-2 flex items-center'>
-                    <span>Về chúng tôi</span>
-                    <span className='absolute -bottom-1 left-0 w-0 transition-all h-1 bg-yellow-400'></span>
-                  </div>
-                </Link>
-              </li>
-              <li>
-                <Link to='/'>
-                  <div className='relative w-max px-3 py-2 flex items-center'>
-                    <span>Thực đơn</span>
-                    <span className='absolute -bottom-1 left-0 w-0 transition-all h-1 bg-yellow-400'></span>
-                  </div>
-                </Link>
-              </li>
-              <li>
-                <Link to='/'>
-                  <div className='relative w-max px-3 py-2 flex items-center'>
-                    <span>Liên hệ</span>
-                    <span className='absolute -bottom-1 left-0 w-0 transition-all h-1 bg-yellow-400'></span>
-                  </div>
-                </Link>
-              </li>
-            </ul> */}
             <ul className='flex items-center gap-4 font-sans'>
               {[
                 { label: 'Trang chủ', path: '/' },
@@ -79,10 +51,15 @@ export default function Header() {
           <div className='flex items-center gap-4'>
             <ModeToggle />
             <div className='flex items-center gap-4'>
-              <Button className='cursor-pointer hover:via-purple-500 hover:to-indigo-500'>Login</Button>
-              <button className='px-4 py-2 rounded-xl                                         bg-background  transition-all duration-300 bg-clip-text text-transparent cursor-pointer bg-gradient-to-r from-foreground to-foreground hover:from-pink-500 hover:via-purple-500 hover:to-indigo-500'>
+              <Button className='cursor-pointer hover:via-purple-500 hover:to-indigo-500' onClick={handleNavigateLogin}>
+                Login
+              </Button>
+              <Link
+                to={PATH.register}
+                className='px-4 py-2 rounded-xl bg-background  transition-all duration-300 bg-clip-text text-transparent cursor-pointer bg-gradient-to-r from-foreground to-foreground hover:from-pink-500 hover:via-purple-500 hover:to-indigo-500'
+              >
                 SignUp
-              </button>
+              </Link>
             </div>
           </div>
         </div>

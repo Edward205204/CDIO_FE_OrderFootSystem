@@ -1,17 +1,18 @@
 import { Link } from 'react-router';
+import LogoIcon from './logo-icon';
 
 export default function Footer() {
   return (
-    <div className='bg-background py-8 border-t border-t-slate-200 dark:border-t-slate-700 pb-18'>
+    <div className='bg-background py-18 border-t border-t-slate-200 dark:border-t-slate-700 pb-18'>
       <div className='container'>
         <div className='grid grid-cols-12 lg:flex-row justify-between items-start gap-8'>
           <div className='col-span-4'>
             <div className='flex flex-col gap-4'>
               <div className='flex items-center gap-2'>
                 <Link to='/'>
-                  <img src='./mainlogo.png' alt='Logo' className='w-12 h-12 object-cover' />
+                  <LogoIcon container='w-18 h-18' />
                 </Link>
-                <span className='text-2xl font-semibold '>FoodieHub</span>
+                <span className='text-2xl font-semibold ml-4'>FoodieHub</span>
               </div>
               <p className='text-sm '>
                 Chúng tôi cung cấp dịch vụ giao hàng tận nơi từ những nhà hàng nổi tiếng, mang đến cho bạn những trải

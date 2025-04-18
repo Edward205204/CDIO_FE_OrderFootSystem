@@ -4,6 +4,7 @@ import RegisterLayout from './layouts/register-layout';
 import Login from './pages/login';
 import MainLayout from './layouts/main-layout';
 import Home from '@/pages/home';
+import Register from './pages/register';
 
 export default function useReactRouter() {
   const element = useRoutes([
@@ -12,6 +13,14 @@ export default function useReactRouter() {
       element: (
         <RegisterLayout>
           <Login />
+        </RegisterLayout>
+      )
+    },
+    {
+      path: PATH.register,
+      element: (
+        <RegisterLayout>
+          <Register />
         </RegisterLayout>
       )
     },
