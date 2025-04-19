@@ -21,10 +21,10 @@ export default function Header() {
           <nav className='flex items-center text-base '>
             <ul className='flex items-center gap-4 font-sans'>
               {[
-                { label: 'Trang chủ', path: '/' },
-                { label: 'Về chúng tôi', path: '/ve-chung-toi' },
-                { label: 'Thực đơn', path: '/thuc-don' },
-                { label: 'Liên hệ', path: '/lien-he' }
+                { label: 'Trang chủ', path: PATH.home },
+                { label: 'Về chúng tôi', path: PATH.about },
+                { label: 'Thực đơn', path: PATH.menu },
+                { label: 'Liên hệ', path: PATH.contact }
               ].map(({ label, path }) => (
                 <li key={path}>
                   <Link to={path}>

@@ -1,5 +1,7 @@
 import { Link } from 'react-router';
 import LogoIcon from './logo-icon';
+import { PATH } from '@/constants/path';
+import Facebook from '../icons/facebook/facebook';
 
 export default function Footer() {
   return (
@@ -26,10 +28,10 @@ export default function Footer() {
               <h3 className='text-lg font-medium '>Liên kết nhanh</h3>
               <ul className='flex flex-col gap-2'>
                 {[
-                  { label: 'Trang chủ', path: '/' },
-                  { label: 'Về chúng tôi', path: '/ve-chung-toi' },
-                  { label: 'Thực đơn', path: '/thuc-don' },
-                  { label: 'Liên hệ', path: '/lien-he' }
+                  { label: 'Trang chủ', path: PATH.home },
+                  { label: 'Về chúng tôi', path: PATH.about },
+                  { label: 'Thực đơn', path: PATH.menu },
+                  { label: 'Liên hệ', path: PATH.contact }
                 ].map(({ label, path }) => (
                   <li key={path}>
                     <Link to={path} className='hover:underline'>
@@ -41,19 +43,17 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Mạng xã hội */}
           <div className='col-span-2'>
             <div className='flex flex-col gap-4'>
               <h3 className='text-lg font-medium '>Kết nối với chúng tôi</h3>
               <div className='flex items-center gap-4'>
-                <Link to='#'>
-                  <i className='fab fa-facebook-f text-xl'></i>
+                <Link to='https://www.facebook.com/' className='flex items-center gap-2 '>
+                  <Facebook />
+                  Facebook
                 </Link>
-                <Link to='#' className='text-muted hover:text-foreground'>
-                  <i className='fab fa-twitter text-xl'></i>
-                </Link>
-                <Link to='#' className='text-muted hover:text-foreground'>
-                  <i className='fab fa-instagram text-xl'></i>
+                <Link to='https://www.facebook.com/' className='flex items-center gap-2 '>
+                  <Facebook />
+                  Instagram
                 </Link>
               </div>
             </div>
